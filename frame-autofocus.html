@@ -3,7 +3,21 @@
 <body>
   <h1>Iframed Page Autofocus</h1>
   <p>Input elment autofocus.</p>
-  <input id="input" type="text" autofocus>
+  <p id="countdown">5</p>
+  <dialog id="d1">
+    <input type="text" autofocus>
+  </dialog>
+  <script>
+    var countdown = 5;
+    var interval = setInterval(function () {
+      countdown--;
+      document.getElementById("countdown").textContent = countdown;
+      if (countdown === 0) {
+        clearInterval(interval);
+        document.getElementById("d1").showModal();
+      }
+    }, 1000);
+  </script>
   <style>
     body {
       font-family: Arial, sans-serif;
