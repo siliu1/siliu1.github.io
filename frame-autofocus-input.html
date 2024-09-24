@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h1>Iframed Page Autofocus</h1>
+  <p>Input elment autofocus.</p>
+  <p id="countdown">5</p>
+  <div id="cd1"></div>
+  <script>
+    var countdown = 5;
+    var interval = setInterval(function () {
+      countdown--;
+      document.getElementById("countdown").textContent = countdown;
+      if (countdown === 0) {
+        clearInterval(interval);
+        document.getElementById("cd1").innerHTML = "<input type='text' autofocus>";
+      }
+    }, 1000);
+  </script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    input {
+      font-size: 1.5em;
+      padding: 0.5em;
+      width: 50%;
+    }
+    input:focus {
+      outline: 2px solid blue;
+    }
+  </style>
+</body>
+</html>
