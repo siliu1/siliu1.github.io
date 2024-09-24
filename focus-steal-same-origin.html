@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+  <h1>Focus Steal Sample</h1>
+  <p>Click on the "Load frame" button below to see focus being stole by the iframed page. You will see the focus rect
+    move into the frame after it loads.</p>
+  <p>Click on the "Focus frame" button below to programmatically move focus to the iframed page. You should see the
+    focus rect move into the frame.</p>
+  <div>
+  <div>
+    <div>
+      <button onclick="loadRemoteFrame()">Load same origin frame</button>
+      <button onclick="focusRemoteFrame()">Focus same origin frame</button>
+    </div>
+    <iframe id="remoteframe" width="300" height="300"></iframe>
+  </div>
+
+  <div>
+    <div>
+      <button onclick="loadRemoteInputAutoFocusFrame()">Load same origin input AutoFocus frame</button>
+    </div>
+    <iframe id="remoteinputautofocusframe" width="300" height="300"></iframe>
+  </div>
+
+  <div>
+    <div>
+      <button onclick="loadRemoteDialogAutoFocusFrame()">Load same origin dialog AutoFocus frame</button>
+    </div>
+    <iframe id="remotedialogautofocusframe" width="300" height="300"></iframe>
+  </div>
+
+  <script>
+    function loadRemoteFrame() {
+      document.getElementById("remoteframe").src = "https://siliu1.github.io/frame.html";
+    }
+    function focusRemoteFrame() {
+      document.getElementById("remoteframe").focus();
+    }
+
+    function loadRemoteInputAutoFocusFrame() {
+      document.getElementById("remoteinputautofocusframe").src = "https://siliu1.github.io/frame-autofocus-input.html";
+    }
+    function loadRemoteDialogAutoFocusFrame() {
+      document.getElementById("remotedialogautofocusframe").src = "https://siliu1.github.io/frame-autofocus.html";
+    }
+  </script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    button {
+      font-size: 1.5em;
+      padding: 0.5em;
+      margin-bottom: 0.5em;
+    }
+
+    button:focus {
+      outline: 2px solid blue;
+    }
+  </style>
+</body>
+
+</html>
